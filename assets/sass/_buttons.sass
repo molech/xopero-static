@@ -1,0 +1,41 @@
+.btn
+  display: block
+  font-size: pxToRem(20)
+  font-weight: 600
+  text-align: center
+  padding: pxToRem(14) pxToRem(23)
+  transition: all 300ms
+  +screen(0, $bpLarge, landscape)
+    display: inline-block
+  +minScreen($bpSmall)
+    display: inline-block
+  &--small
+    font-size: pxToRem(14)
+    padding: pxToRem(8) pxToRem(12)
+  &--primary
+    +buttonPrimaryBase
+  &--secondary
+    color: $black
+    background-color: $white
+    +hover
+      opacity: 0.8
+  &--font-normal
+    font-weight: 400
+  &--rounded
+    border-radius: pxToRem(3)
+  &--shadowed
+    box-shadow: 0 0 8px 0px rgba($black, 0.4)
+
+.buttons-bar
+  display: flex
+  flex: 1 1 100%
+  justify-content: center
+  gap: pxToRem(16)
+  flex-wrap: wrap
+  .btn
+    width: 100%
+    +screen(0, $bpLarge, landscape)
+      width: auto
+    +minScreen($bpSmall)
+      width: auto
+

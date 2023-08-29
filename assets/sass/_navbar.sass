@@ -1,0 +1,171 @@
+.page-navbar
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  height: $navbarHeightMobile
+  background-color: $white
+  z-index: 1001
+  transition: height 150ms ease-in
+  &--shrink
+    box-shadow: 0 5px 10px 0 rgba($black, 0.1)
+  .container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: min(pxToRem(1372), 100%)
+    height: 100%
+  .menu-item
+    display: flex
+    height: 100%
+    align-items: center
+    color: #fff
+    text-decoration: none
+    margin-left: pxToRem(26)
+    &--contact
+      a
+        font-weight: 400
+        color: inherit
+  &__logo
+    flex-shrink: 0
+    width: pxToRem(143)
+    height: pxToRem(55)
+    position: relative
+  &__nav
+    display: flex
+    flex-direction: column-reverse
+    justify-content: flex-end
+    align-items: flex-start
+    transform: translateX(100vw)
+    transition: 300ms ease-in-out
+    padding-top: pxToRem(80)
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    height: 100vh
+    background-color: $primary
+  &__nav--primary,
+  &__nav--secondary
+    display: flex
+    ul
+      display: flex
+      flex-wrap: wrap
+      flex-direction: column
+      +resetList
+      li
+        padding-bottom: pxToRem(12)
+  &__nav--primary
+    .menu-item
+      font-size: pxToRem(18)
+      text-transform: uppercase
+      &--special
+        font-size: 1rem
+        padding: pxToRem(11) pxToRem(18)
+        +buttonPrimaryBase
+  &__nav--secondary
+    margin-top: pxToRem(24)
+    .menu-item
+      font-size: pxToRem(14.6)
+      font-weight: bold
+  &--menu-open
+    .page-navbar__nav
+      transform: translateX(0)
+      
+
+.burger-menu
+  height: pxToRem(56)
+  width: pxToRem(56)
+  padding: pxToRem(10)
+  overflow: visible
+  position: relative
+  z-index: 1500
+  cursor: pointer
+  span
+    right: pxToRem(10)
+    top: pxToRem(26)
+    width: pxToRem(28)
+    &,
+    &:before,
+    &:after
+      background-color: $primary
+      display: block
+      height: pxToRem(2)
+      opacity: 1
+      position: absolute
+      transition: 300ms ease-in-out
+    &:before,
+    &:after
+      content: ""
+    &:before
+      right: 0
+      top: -(pxToRem(12))
+      width: pxToRem(20)
+    &:after
+      right: 0
+      top: 12px
+      width: pxToRem(36)
+  &.burger-menu--close span
+    transform: rotate(-45deg)
+    top: pxToRem(27)
+    width: pxToRem(37)
+    margin-right: -(pxToRem(5))
+    &, &:before
+      height: pxToRem(2)
+      background-color: $white
+    &:before
+      top: 0
+      transform: rotate(90deg)
+      width: pxToRem(37)
+    &:after
+      top: 0
+      right: 0
+      transform: rotate(90deg)
+      width: 0
+      opacity: 0
+
++screen(0, $bpLarge, landscape)
+  .page-navbar
+    &__nav
+      flex-direction: row-reverse
+      padding-top: pxToRem(20)
+      gap: pxToRem(80)
+    &__nav--secondary
+      margin: 0
+
++minScreen($bpLarge)
+  .page-navbar
+    height: $navbarHeight
+    padding-top: pxToRem(17)
+    padding-bottom: pxToRem(26)
+    .container
+      align-items: flex-end
+    &__logo
+      flex-shrink: 0
+      width: pxToRem(170)
+      height: pxToRem(67)
+    &__nav
+      position: static
+      height: auto
+      transform: none
+      padding-top: 0
+      flex-direction: column
+      justify-content: flex-start
+      align-items: flex-end
+      background-color: $white
+    &__nav--primary,
+    &__nav--secondary
+      ul
+        flex-direction: row
+        li
+          padding: 0
+    &__nav--primary
+      margin-top: pxToRem(24)
+    &__nav--secondary
+      margin-top: 0
+    .menu-item
+      &:not(.menu-item--special)
+        color: $black
+
+  .burger-menu
+    display: none

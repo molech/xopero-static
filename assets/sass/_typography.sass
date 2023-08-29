@@ -1,0 +1,28 @@
+*::selection
+  color: $white
+  background-color: $secondary
+
+a
+  color: $primary
+  text-decoration: none
+  transition: all 150ms linear
+  &[href^="tel:"]
+    +minScreen($bpLarge)
+      pointer-events: none
+      cursor: default
+
+h1
+  +headingPrimaryBase
+
+h2
+  +headingPrimaryBase
+
+h3
+  +headingSecondaryBase
+
+h4
+  font-size: pxToRem(16)
+  font-weight: 700
+  margin-bottom: pxToRem(10)
+  +minScreen($bpLarge)
+    font-size: pxToRem(20)

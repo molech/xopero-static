@@ -1,0 +1,29 @@
+html, body
+  width: 100%
+  height: 100%
+  margin: 0
+  padding: 0
+
+html
+  scroll-behavior: smooth
+
+body
+  font-family: $fontPrimary
+  font-size: 16px
+  overflow-x: hidden
+
+.page-wrap
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+  padding-top: $navbarHeightMobile
+  +minScreen($bpLarge)
+    padding-top: $navbarHeight
+
+.container
+  width: min(pxToRem(1140), 100%)
+  padding-right: $columnGap
+  padding-left: $columnGap
+  margin-right: auto
+  margin-left: auto
+  height: 100%
